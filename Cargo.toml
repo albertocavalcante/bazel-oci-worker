@@ -1,0 +1,78 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/bazel-oci-types",
+    "crates/bazel-oci-registry",
+    "crates/bazel-oci-worker",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "Apache-2.0"
+repository = "https://github.com/albertocavalcante/bazel-oci-worker"
+rust-version = "1.90"
+
+[workspace.dependencies]
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# Crypto
+sha2 = "0.10"
+
+# Error handling
+thiserror = "2"
+
+# HTTP
+http = "1"
+
+# Async
+async-trait = "0.1"
+
+# UUID
+uuid = { version = "1", features = ["v4", "js"] }
+
+# Internal crates
+bazel-oci-types = { path = "crates/bazel-oci-types" }
+bazel-oci-registry = { path = "crates/bazel-oci-registry" }
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
+opt-level = "s"
+
+[workspace.lints.rust]
+unsafe_code = "deny"
+warnings = "deny"
+rust_2018_idioms = { level = "deny", priority = -1 }
+
+[workspace.lints.clippy]
+all = { level = "deny", priority = -1 }
+pedantic = { level = "deny", priority = -1 }
+nursery = { level = "deny", priority = -1 }
+unwrap_used = "deny"
+expect_used = "deny"
+# Restriction lints appropriate for a wasm library
+dbg_macro = "deny"
+print_stdout = "deny"
+print_stderr = "deny"
+todo = "deny"
+unimplemented = "deny"
+module_name_repetitions = { level = "allow", priority = 1 }
+must_use_candidate = { level = "allow", priority = 1 }
+missing_errors_doc = { level = "allow", priority = 1 }
+missing_panics_doc = { level = "allow", priority = 1 }
+doc_markdown = { level = "allow", priority = 1 }
+too_many_lines = { level = "allow", priority = 1 }
+return_self_not_must_use = { level = "allow", priority = 1 }
+redundant_else = { level = "allow", priority = 1 }
+option_if_let_else = { level = "allow", priority = 1 }
+collapsible_if = { level = "allow", priority = 1 }
+collapsible_else_if = { level = "allow", priority = 1 }
+if_not_else = { level = "allow", priority = 1 }
+manual_let_else = { level = "allow", priority = 1 }
+match_same_arms = { level = "allow", priority = 1 }
+significant_drop_tightening = { level = "allow", priority = 1 }
+future_not_send = { level = "allow", priority = 1 }

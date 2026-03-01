@@ -1,0 +1,26 @@
+[package]
+name = "bazel-oci-worker"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+description = "Cloudflare Worker serving Bazel OCI registry via R2"
+
+[lints]
+workspace = true
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+bazel-oci-types.workspace = true
+bazel-oci-registry.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+http.workspace = true
+async-trait.workspace = true
+uuid.workspace = true
+worker = { version = "0.5", features = ["http"] }
+axum = { version = "0.7", default-features = false }
+tower-service = "0.3"

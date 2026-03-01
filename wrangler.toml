@@ -1,0 +1,13 @@
+name = "bazel-oci-worker"
+main = "build/worker/shim.mjs"
+compatibility_date = "2025-01-01"
+
+[build]
+command = "cargo install -q worker-build && worker-build --release"
+
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "bazel-oci"
+
+[vars]
+NAMESPACE = "default"

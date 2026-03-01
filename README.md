@@ -1,5 +1,9 @@
 # bazel-oci-worker
 
+[![CI](https://github.com/albertocavalcante/bazel-oci-worker/actions/workflows/ci.yml/badge.svg)](https://github.com/albertocavalcante/bazel-oci-worker/actions/workflows/ci.yml)
+[![License](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](LICENSE)
+[![Rust](https://img.shields.io/badge/rust-1.90%2B-orange.svg)](https://www.rust-lang.org)
+
 A self-hosted [Bazel Central Registry](https://bazel.build/external/registry) (BCR) backed by an OCI Distribution registry, deployed as a single Cloudflare Worker with R2 storage.
 
 Modules are stored as standard OCI artifacts. Bazel clients see a BCR-compatible HTTP API, while container tooling (ORAS, crane, skopeo) can push and inspect modules through the OCI Distribution v2 API. One binary, one R2 bucket, no database.

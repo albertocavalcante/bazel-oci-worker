@@ -1,7 +1,7 @@
 # bazel-oci-worker
 
 [![CI](https://github.com/albertocavalcante/bazel-oci-worker/actions/workflows/ci.yml/badge.svg)](https://github.com/albertocavalcante/bazel-oci-worker/actions/workflows/ci.yml)
-[![License](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue.svg)](LICENSE-MIT)
 [![Rust](https://img.shields.io/badge/rust-1.90%2B-orange.svg)](https://www.rust-lang.org)
 
 A self-hosted [Bazel Central Registry](https://bazel.build/external/registry) (BCR) backed by an OCI Distribution registry, deployed as a single Cloudflare Worker with R2 storage.
@@ -338,4 +338,9 @@ GitHub Actions runs on pushes and pull requests to `main`:
 
 ## License
 
-[Apache-2.0](LICENSE)
+Licensed under either of
+
+- [Apache License, Version 2.0](LICENSE-APACHE)
+- [MIT License](LICENSE-MIT)
+
+at your option.

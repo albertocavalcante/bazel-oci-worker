@@ -12,8 +12,6 @@ use bazel_oci_registry::storage::Storage;
 use crate::auth::{self, AuthResult};
 use crate::state::AppState;
 
-type SharedState<S> = Rc<AppState<S>>;
-
 fn error_response(err: &RegistryError) -> Response {
     let status =
         StatusCode::from_u16(err.status_code()).unwrap_or(StatusCode::INTERNAL_SERVER_ERROR);
